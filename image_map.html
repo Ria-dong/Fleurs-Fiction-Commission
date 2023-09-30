@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image map</title>
+  <!-- checking the current style -->
+  <link rel="stylesheet" href="style-desktop.css" id="desktop-style">
+  <link rel="stylesheet" href="style-mobile.css" id="mobile-style">
+  <script src="js/change_style.js"></script>
+</head>
+<body>
+  <!-- This is a top navbar -->
+  <div class="navbar">
+    <a href="index.html">Index</a>
+    <div class="dropdown">
+      <button class="dropbtn">Home</button>
+      <div class="dropdown-content">
+        <a href="homepage.html">Home</a>
+        <a href="square.html">Square</a>
+        <a href="search_result.html">Search</a>
+        <a href="writer_square.html">Writers' Square</a>
+        <a href="funder_square.html">Funders' Square</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Source</button>
+      <div class="dropdown-content">
+        <a href="photo_gallary.html">Gallery</a>
+        <a href="image_map.html">Image Map</a>
+        <a href="sitemap.html">Site Map</a>
+        <a href="sourcelog.html">Source</a>
+        <a href="assignment.html">Assignment</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Contact</button>
+      <div class="dropdown-content">
+        <a href="me.html">About Me</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="about_my_site.html">About my site</a>
+      </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">New Functions</button>
+        <div class="dropdown-content">
+          <a href="change_style.html">Style changes</a>
+          <a href="social_media.html">Social Media Feeds</a>
+          <a href="screenshot.html">W3C validation</a>
+        </div>
+    </div>
+  </div> 
+  <h1>Image Map</h1>
+  <h3>Click to find out what will this picture lead you to</h3>
+    <!-- this is an image map -->
+    <p class="image-map">
+        Some hints:
+        <br>
+        1. Click the Female -> To Funders' Square
+        <br>
+        2. Click the Male -> To Writers' Square
+        <br>
+        3. Click the Paper/Contract -> To Search
+        <br>
+        4. Click the Books -> To an Example Text
+    </p>
+    <img src="image/AdobeStock_573769353.jpg" alt="contract" usemap="#contract" height="468.9" width="689.6">
+
+    <!-- this is the pages that will be led to when clicking different positions -->
+    <map name="contract">
+    <area shape="rect" coords="0,50.6,165.7,466.1" alt="Female" href="funder_square.html">
+    <area shape="poly" coords="295.6,49.2,262.8,106.3,258.5,159.1,178.5,186.3,187.1,371.9,261.3,363.3,348.4,321.9,452.6,341.9,399.8,184.8,341.3,163.4,355.6,69.2" alt="Male" href="writer_square.html">
+    <area shape="poly" coords="202.8,384.7,312.7,404.8,364.1,387.6,498.3,397.6,544.0,369.0,448.4,366.2,404.1,330.5,369.8,326.7,269.9,366.2" alt="contract" href="search_result.html">
+    <area shape="rect" coords="391.3,0,614.0,76.3" alt="book" href="writer_example1.html">
+    </map>
+</body>
+</html>

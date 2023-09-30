@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Feedback</title>
+  <!-- Checking the current style -->
+  <link rel="stylesheet" href="style-desktop.css" id="desktop-style">
+  <link rel="stylesheet" href="style-mobile.css" id="mobile-style">
+  <script src="js/change_style.js"></script>
+</head>
+
+<body>
+  <!-- This is a top navbar -->
+  <div class="navbar">
+    <a href="index.html">Index</a>
+    <div class="dropdown">
+      <button class="dropbtn">Home</button>
+      <div class="dropdown-content">
+        <a href="homepage.html">Home</a>
+        <a href="square.html">Square</a>
+        <a href="search_result.html">Search</a>
+        <a href="writer_square.html">Writers' Square</a>
+        <a href="funder_square.html">Funders' Square</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Source</button>
+      <div class="dropdown-content">
+        <a href="photo_gallary.html">Gallery</a>
+        <a href="image_map.html">Image Map</a>
+        <a href="sitemap.html">Site Map</a>
+        <a href="sourcelog.html">Source</a>
+        <a href="assignment.html">Assignment</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Contact</button>
+      <div class="dropdown-content">
+        <a href="me.html">About Me</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="about_my_site.html">About my site</a>
+      </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">New Functions</button>
+        <div class="dropdown-content">
+          <a href="change_style.html">Style changes</a>
+          <a href="social_media.html">Social Media Feeds</a>
+          <a href="screenshot.html">W3C validation</a>
+        </div>
+    </div>
+  </div> 
+  <h1>Feedback</h1>
+  <!-- this is a intro for feedback -->
+  <p class="normal">
+    We are always looking to improve our website and provide better experience. <br>
+    If you have any suggestions or comments, please fill in the form and send us through email. <br>
+    Your feedback is valuable to us and will help us make our website better.<br>
+  </p>
+  <br>
+  <form method="post" action="mailto:dong_lingran@163.com"  enctype="text/plain">
+  
+    <label for="name"> Your name:</label><br>
+    <input type="text" id="name" name="name"><br>
+  
+  <br>
+  
+    <label for="email">Your email address:</label><br>
+    <input type="text" id="email" name="email"><br>
+  
+  <br>
+  
+    <label>What is your gender?</label><br>
+
+    <input type="radio" id="Male" name="gender" value="HTML">
+    <label for="Male">Male</label><br>
+
+    <input type="radio" id="Female" name="gender" value="HTML">
+    <label for="Female">Female</label><br>
+
+    <input type="radio" id="N" name="gender" value="HTML">
+    <label for="N">I prefer not to say</label><br>
+  
+    <br>
+  
+    <label for="feedback"> Please fill in your feedback:</label><br>
+    <input type="text" id="feedback" name="feedback" 
+    style="width: 300px; height: 100px"><br>
+    <br>
+    <!-- this is a button to trigger Email application/website -->
+    <input class="button" type="submit" value="Submit through Email">
+  </form>
+</body>
+</html>

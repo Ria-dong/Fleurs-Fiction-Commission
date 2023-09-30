@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Result</title>
+  <!-- checking the current style -->
+  <link rel="stylesheet" href="style-desktop.css" id="desktop-style">
+  <link rel="stylesheet" href="style-mobile.css" id="mobile-style">
+  <script src="js/change_style.js"></script>
+</head>
+
+<body>
+  <!-- This is a top navbar -->
+  <div class="navbar">
+    <a href="index.html">Index</a>
+    <div class="dropdown">
+      <button class="dropbtn">Home</button>
+      <div class="dropdown-content">
+        <a href="homepage.html">Home</a>
+        <a href="square.html">Square</a>
+        <a href="search_result.html">Search</a>
+        <a href="writer_square.html">Writers' Square</a>
+        <a href="funder_square.html">Funders' Square</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Source</button>
+      <div class="dropdown-content">
+        <a href="photo_gallary.html">Gallery</a>
+        <a href="image_map.html">Image Map</a>
+        <a href="sitemap.html">Site Map</a>
+        <a href="sourcelog.html">Source</a>
+        <a href="assignment.html">Assignment</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Contact</button>
+      <div class="dropdown-content">
+        <a href="me.html">About Me</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="about_my_site.html">About my site</a>
+      </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">New Functions</button>
+        <div class="dropdown-content">
+          <a href="change_style.html">Style changes</a>
+          <a href="social_media.html">Social Media Feeds</a>
+          <a href="screenshot.html">W3C validation</a>
+        </div>
+    </div>
+  </div> 
+  <br>
+    <div style="width: 100%; height: 150px;">
+        <img src="image/rozen-en-pioenen-vincent-van-gogh-44687-copyright-kroller-muller-museum.jpg"
+        alt="a picture of rose"
+         style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;">
+    </div>
+
+    <h1>
+        Search
+    </h1>
+    <form action="search_result.html" method="get">
+        <input type="text" id="searchInput" placeholder="Type in Title/user id/user name" style="width: 500px; height: 50px"><br>
+        <br>
+        <button class="button" id="searchButton" type="submit" value="submit">Search</button>
+        <button class="button" type="reset" value="Reset">Reset</button>
+    </form>
+    
+    <ul id="searchResults"></ul>
+    
+    <script>
+      // this is a js for searching function
+      var searchInput = document.getElementById("searchInput");
+      var searchButton = document.getElementById("searchButton");
+      var searchResults = document.getElementById("searchResults");
+  
+      // monitor the form
+      document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var keyword = searchInput.value;
+        searchResults.innerHTML = "";
+
+        // tag the content of each examples
+        var pages = [
+            { title: "Example 1", content: "000001, Adam01, Fan-fiction, M/M, Harry Potter, General, adam01_writer@example.com"},
+            { title: "Example 2", content: "000002, Becky02, Original, Fan-fiction, F/M,  Mature, General, Becky02_writer@example.com" },
+            { title: "Example 3", content: "000003, Cathy03, Fan-fiction, F/M, Elementary, General, Teen, Cathy03_writer@example.com" }
+        ];
+  
+        //display the search result
+        for (var i = 0; i < pages.length; i++) {
+            var page = pages[i];
+            if (page.content.includes(keyword)) {
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.textContent = "You may want to have a look at \"" + page.title ;
+                a.setAttribute("href", "writer_example" + (i + 1) + ".html");
+                a.classList.add("result-on-hover");
+                li.appendChild(a);
+                searchResults.appendChild(li);
+            }
+        }
+      });
+    </script>
+    
+    <br>
+    <br>
+    <p class="hints" style="margin-left: 25%;">Hint: 
+      <br>
+      Try to type these key words:
+      <br>
+      Looking for Example 1, Type: 
+      <br>
+      000001, Adam01, Fan-fiction, M/M, Harry Potter, General, adam01_writer@example.com
+      <br><br>
+      Looking for Example 2, Type: 
+      <br>
+      000002, Becky02, Original, Fan-fiction, F/M,  Mature, General, Becky02_writer@example.com
+      <br><br>
+      Looking for Example 3, Type: 
+      <br>
+      000003, Cathy03, Fan-fiction, F/M, Elementary, General, Teen, Cathy03_writer@example.com
+    </p>
+
+    <!-- this is links to squares -->
+    <a class="underline-on-hover" href="writer_square.html" >
+        Writer Square
+    </a>
+  
+    <a class="underline-on-hover" href="funder_square.html" >
+        Funder Square
+    </a>
+    <br>
+    <br>
+</body>
+</html>
