@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <!-- checking the current style -->
+  <link rel="stylesheet" href="style-desktop.css" id="desktop-style">
+  <link rel="stylesheet" href="style-mobile.css" id="mobile-style">
+  <script src="js/change_style.js"></script>
+</head>
+<body>
+ <!-- this is a container to define background -->
+  <div class="background_container">
+    <div id="page1" class="page">
+      <!-- this is a gif flower logo -->
+        <div id="flower_ani" class="flower_animation">
+          <img src="test1.gif" id="gif-image" alt="A rose">
+        </div>
+        <!-- this is a text logo -->
+        <div id="text_ani" class="logo_animation" >
+          Fleurs
+        </div>
+    
+        <script>
+          // this is a js for monitor the gif animination
+          var logoAnimationElement = document.querySelector('.logo_animation');
+          logoAnimationElement.addEventListener('animationend', function() {
+            logoAnimationElement.style.opacity = '1';
+          });
+        </script>
+        <!-- this is blinking text for guidance -->
+        <div class="blink" >
+          <p>Scroll Down to Welcome Page</p>
+        </div>
+    </div>
+
+    <!-- this is a welcome page -->
+    <div id="page2" class="page">
+      
+      <h1>Welcome to Fleurs Fiction Commission</h1>
+      <p class="normal">
+        Fiction Commission is a public website offering an efficient and safe channel for writers who has spare time and want to earn money through writing, and funders that looking for capable writers to make their ideas become brilliant novels, to find each other and make contraction. 
+      </p>
+
+      <!-- this is blinking text for guidance -->
+      <div class="blink_more" >
+        <p>Scroll Down to Essential Pages</p>
+      </div>
+    </div>
+
+    <!-- this is a page with lead to important pages-->
+    <div id="page3" class="page">
+      <h1>Let me lead you to some essential pages.</h1>
+      <h3>
+        Hope you enjoy spending your time wandering here! 
+      </h3> 
+
+    
+
+    <a class="underline-on-hover" href="homepage.html" >
+      Home
+    </a>
+
+    <a class="underline-on-hover" href="assignment.html" >
+      Assignment
+    </a>
+
+    <a class="underline-on-hover" href="change_style.html" >
+      Style change
+    </a>
+    <br>
+    <br>
+    <a href="https://www.facebook.com/profile.php?id=100092274122645&sk=videos&video_upload_notif=1&notif_id=1684559968807249&notif_t=video_processed&ref=notif" 
+    class="button-fa"> Follow me</a>
+    <br>
+    <a href="https://www.facebook.com/messages/t/USER_ID?text=Look&at&THIS!" target="_blank" class="button-fa">
+      Share</a>
+
+    </div>
+
+    
+
+
+  </div>
+
+
+  <script>
+    // this is a js to realize the page changing feature
+    showPage('page1');
+  
+    // show only current page
+    function showPage(pageId) {
+      var pages = document.getElementsByClassName('page');
+      for (var i = 0; i < pages.length; i++) {
+        if (pages[i].id === pageId) {
+          pages[i].style.display = 'block';
+        } else {
+          pages[i].style.display = 'none';
+        }
+      }
+    }
+  
+    // monitor wheel and decide the direction
+    window.addEventListener('wheel', function(event) {
+      var delta = Math.sign(event.deltaY);
+      var currentPage = getCurrentPage();
+      var nextPageId = '';
+  
+      // display the exact page
+      if (delta > 0) {
+        nextPageId = currentPage.nextElementSibling ? currentPage.nextElementSibling.id : currentPage.id;
+      } else {
+        nextPageId = currentPage.previousElementSibling ? currentPage.previousElementSibling.id : currentPage.id;
+      }
+  
+      if (currentPage.id === 'page3' && delta > 0) {
+        return;
+      }
+
+      showPage(nextPageId);
+    });
+  
+    // monitor touching action on smart phones
+    var touchstartY = null;
+    var touchendY = null;
+  
+    window.addEventListener('touchstart', function(event) {
+      touchstartY = event.touches[0].clientY;
+    });
+  
+    window.addEventListener('touchend', function(event) {
+      touchendY = event.changedTouches[0].clientY;
+      handleSwipe();
+    });
+  
+    function handleSwipe() {
+      // calculate the distance of swipe
+      var swipeDistance = touchendY - touchstartY;
+      var currentPage = getCurrentPage();
+      var nextPageId = '';
+  
+      // display the exact page
+      if (swipeDistance > 0) {
+        nextPageId = currentPage.previousElementSibling ? currentPage.previousElementSibling.id : currentPage.id;
+      } else {
+        nextPageId = currentPage.nextElementSibling ? currentPage.nextElementSibling.id : currentPage.id;
+      }
+  
+      if (currentPage.id === 'page3' && swipeDistance < 0) {
+        return;
+      }
+  
+      showPage(nextPageId);
+    }
+  
+    // show obejcts in current page
+    function getCurrentPage() {
+      var pages = document.getElementsByClassName('page');
+      for (var i = 0; i < pages.length; i++) {
+        if (pages[i].style.display === 'block') {
+          return pages[i];
+          pages[i].style.opacity = '1';
+        }
+      }
+      return null;
+    }
+  </script>
+  
+</body>
+</html>
